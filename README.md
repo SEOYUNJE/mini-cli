@@ -57,3 +57,21 @@ RUN apt install -y gcc
 RUN gcc mini.c -o mini
 CMD ["./mini"]
 ```
+### Docker Image 생성
+
+```bash
+docdocker build . --tag mini-cli:1.0
+```
+
+> **실행결과**
+<img width="1104" height="405" alt="image" src="https://github.com/user-attachments/assets/7c73f8a0-f7d5-4d6a-877b-f5ee518ebcc4" />
+
+
+### Docker Container 생성
+
+```bash
+docker container run -it --name mini-container mini-cli:1.0
+```
+
+> **실행결과**
+<img width="847" height="662" alt="image" src="https://github.com/user-attachments/assets/9bf6a6f1-d474-4d3d-9bd2-b984d606a0e4" />
