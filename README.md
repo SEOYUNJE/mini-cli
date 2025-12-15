@@ -33,3 +33,27 @@ sudo apt install gcc
 
 
 ## 3) Dockerfile 작성 및 이미지 실행
+
+> **Dockerfile Command**
+
+| Command | 상세 설명 |
+| ------- | --------- |
+| *FROM* | <ins/> 컨테이너 환경의 기반이 되는 컨테이너 이미지 지정 </ins> |
+| *RUN* | <ins/> 컨테이너 환경 구성을 위해 필요한 명령 명시 </ins> |
+| *VOLUME* | <ins/> 컨테이너 외부와 공유할 수 있는 디렉터리 지정 </ins> |
+| *WORKDIR* | <ins/> 컨테이너 내 작업 디렉터리를 지정하는 커맨드 </ins> |
+| *CMD* | <ins/> docker run 명령으로 컨테이너 실행 시 내부에서 실행될 작업 지정 </ins>|
+| *EXPOSE* | <ins/> 컨테이너에서 오픈할 포트 지정 </ins>|
+
+
+### Dockerfile 작성
+
+```Dockerfile
+FROM ubuntu:24.04
+WORKDIR /app
+COPY mini.c /app/
+RUN apt update
+RUN apt install -y gcc
+RUN gcc mini.c -o mini
+CMD ["./mini"]
+```
